@@ -1,0 +1,71 @@
+{% extends "dashboard.html" %}
+
+{% block head %}
+	{% parent %}
+
+{% endblock %}
+
+{% block content %}
+	<form method="post" id="url-form">
+		<div class="form-group {% if msg %}has-error{% endif %}">
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="input-group">
+						<label for="website-url" class="sr-only">Website URL</label>
+						<input type="text" id="website-url" class="form-control" placeholder="Website URL" name="websiteUrl" 
+						{% if url %}value={{ url }}{% endif %}>
+						<span class="input-group-btn"><button id="generate-btn" class="btn btn-default" type="submit">Generate</button></span>
+					</div>
+					{% if msg %}
+						<span class="help-block">{{ msg }}</span>
+					{% endif %}	
+				</div>
+					
+			</div>
+				
+		</div>
+			
+	</form>
+		
+	<div id="script-js">
+		<p><code>Copy</code><em> script JavaScript</em> di bawah ini dan <code>paste</code> pada tag <code>&lt;body&gt;</code><em> website</em> Anda. Pilih button <code>save</code> untuk menyimpan kode widget.</p>
+		<div class="zero-clipboard">
+			<button id="copy-btn" class="btn btn-clipboard" data-clipboard-target="widget-script">Copy</button>
+		</div>
+		<pre id="widget-script" class="prettyprint">{{ widgetScript }}</pre>
+	</div>
+
+	<p>List Widget Anda:</p> 
+	<div id="accordion" class="panel-group" role="tablist">
+		{% if widgets.length === 0 %}
+			<div class="alert alert-warning"> 
+				Anda belum pernah memasang aplikasi chat Widget. Silakan masukkan URL website Anda pada form di atas untuk menambahkan aplikasi widget pada website Anda.
+			</div>
+		{% else %}
+			{% for key, val in widgets|sort %}
+				<div class="panel panel-default">
+					<div id="widget{{ key }}" class="panel-heading" role="tab">
+						<h4 class="panel-title">
+							<a class="collapsed" href="#widget-code{{ key }}" data-toggle="collapse" data-parent="accordion" aria-expanded="false" aria-controls="widget-code{{ key }}">
+								<span id="website-url">{{ val.url }}</span>
+							</a>
+						</h4>
+					</div>
+					<div id="widget-code{{ key }}" class="panel-collapse collapse" role="tabpanel", aria-labelledby="widget{{ key }}">
+						<div class="panel-body">
+							<pre id="widget-script{{ key }}" class="prettyprint">{{ val.widgetCode }}</pre>
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+		{% endif %}
+		
+	</div>
+{% endblock %}
+
+
+{% block js %}
+	{% parent %}
+	<script src="/components/zeroclipboard/dist/ZeroClipboard.js"></script>
+	<script src="/javascripts/dashboard-setting-widget.js"></script>
+{% endblock %}

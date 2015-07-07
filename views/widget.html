@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>{{ title }}</title>
+
+		{% block head %}
+		<link rel="stylesheet" href="/components/bootstrap/dist/css/bootstrap.css">
+		<link rel="stylesheet" href="/stylesheets/widget.css">
+		{% endblock %}
+	</head>
+	<body>
+		<div id="container">
+			<h2>Chat Widget Charsabit from <a href="{{ widgetUrl }}" target="_blank">{{ widgetUrl }}</a></h2>
+			<div id="widget">
+				<div id="widget-header">
+					<span class="glyphicon glyphicon-comment"></span>&nbsp;Chat with Us
+					<div class="pull-right">
+						<a href="/widget/{{ idWidget }}/logout" title="logout"><span id="logout-icon" class="glyphicon glyphicon-log-out"></span></a>&nbsp;&nbsp;&nbsp;<span id="minimize-icon" class="glyphicon glyphicon-minus"></span>
+					</div>
+						
+				</div>
+					
+
+				<div id="widget-body">
+					{% block content %}{% endblock %}
+
+					<!-- <div class="administrator-status">
+						
+					</div> -->
+
+					<div class="message-box">
+						<div class="form-group">
+							<div id="alert">
+								<span id="msg-box-alert" class="help-block"></span>
+							</div>
+							<input type="text" id="msg-box" class="form-control" name="msgBox" placeholder="Type your message here">
+						</div>
+						
+					</div>
+						
+				</div>
+				
+			</div>
+			
+		</div>
+		
+		<a id="minimize-btn" class="btn btn-danger">
+			<span class="glyphicon glyphicon-comment"></span>
+			&nbsp; Chat With Us &nbsp;
+			{% if unreadMsg.length > 0 %}<span class="badge">{{ unreadMsg.length }}</span>{% endif %}
+		</a>
+			
+		
+
+		{% block js %}
+			<script type="text/javascript" src="/components/jquery/dist/jquery.js"></script>
+			<script type="text/javascript" src="/components/bootstrap/dist/js/bootstrap.js"></script>
+			<script type="text/javascript" src="/components/jquery-titlealert/jquery.titlealert.js"></script>
+			<script type="text/javascript" src="/javascripts/widget.js"></script>
+		{% endblock %}
+	</body>
+</html>

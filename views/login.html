@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+
+{% block head %}
+	{% parent %}
+{% endblock %}
+
+{% block content %}
+<div class="bg-grey">
+	<div class="container">
+		<div id="login-box" class="middle-center">
+			{% if warning %}
+				<div class="alert {{ warning.warningType }} alert-dismissible" role="alert">
+					<button class="close" data-dismiss="alert" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<p>{{ warning.warningMsg }}</p>
+				</div>
+			{% endif %}
+
+			<h3 class="text-center">Login to Your Dashboard</h3> 
+			<div>
+				<form id="login-form" method="post">
+					<div class="form-group {% if msg.username %}has-error{% endif %}">
+						<label for="login-username" class="sr-only">Username</label>
+						<input type="text" id="login-username" class="form-control" placeholder="Username" name="loginUsername" 
+						{% if data %}value={{ data.username }}{% elseif username %}value={{ username }}{% endif %} >
+						{% if msg.username %}
+							<span class="help-block">{{ msg.username }}</span>
+						{% endif %}
+					</div>
+					<div class="form-group {% if msg.password %}has-error{% endif %}">
+						<label for="login-password" class="sr-only">Password</label>
+						<input type="password" id="login-password" class="form-control" placeholder="Password" name="loginPassword" 
+						{% if username %}tabindex="-1" {% endif %}
+						{% if data %}value={{ data.password }}{% endif %} >
+						{% if msg.password %}
+							<span class="help-block">{{ msg.password }}</span>
+						{% endif %}
+					</div>
+					
+					<button id="login-btn" class="btn btn-danger btn-block" type="submit">Login</button>
+				</form>
+					
+			</div>
+				
+			<p>Do you have an account? <a href="/signup">Sign Up</a></p> 
+		</div>
+			
+	</div>
+				
+</div>
+			
+	
+{% endblock %}
+
+{% block js %}
+	{% parent %}
+	<script type="text/javascript" src="/javascripts/login.js"></script>
+{% endblock %}

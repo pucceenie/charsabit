@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block head %}
+	{% parent %}
+	<script src="/socket.io/socket.io.js"></script>
+{% endblock %}
+
+{% block content %}
+<div>redirecting to login...</div>
+
+<script>
+// initiate socket.io
+	var socket = io();
+	var idUsername = "{{ idUsername }}";
+	var idWidget = "{{ idWidget }}";
+	var idDashboard = "{{ idDashboard }}";
+	
+	socket.emit('logout-widget', { idWidget: idWidget, idUsername: idUsername, idDashboard: idDashboard });
+	socket.on('visitor offline', function (data) {
+		window.location.href = '/widget/' + idWidget + '/login';
+		//console.log('visitor: ' + data + 'offline');
+	});
+</script>
+
+{% endblock %}
+
+{% block js %}
+	{% parent %}
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block head %}
+	{% parent %}
+	<script src="/socket.io/socket.io.js"></script>
+{% endblock %}
+
+{% block content %}
+<div>redirecting to landingpage...</div>
+
+<script>
+// initiate socket.io
+	var socket = io();
+	var idUsername = "{{ idUsername }}";
+	var idDashboard = "{{ idDashboard }}";
+	
+	socket.emit('logout-dashboard', { idDashboard: idDashboard, idUsername: idUsername });
+	socket.on('admin offline', function (data) {
+		window.location.href = '/';
+		//console.log('admin: ' + data + 'offline');
+	});
+</script>
+
+{% endblock %}
+
+{% block js %}
+	{% parent %}
+
+{% endblock %}

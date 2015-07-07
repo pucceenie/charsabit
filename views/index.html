@@ -1,0 +1,83 @@
+{% extends "layout.html" %}
+
+{% block head %}
+	{% parent %}
+
+{% endblock %}
+
+{% block content %}
+	<div class="navbar navbar-default navbar-fixed-top">
+		<div class="container-fluid">
+
+			<div class="navbar-header">
+				<a href="/" class="navbar-brand">
+					<img src="/images/charsabit-header.png" alt="">
+				</a>
+			</div>
+			
+			<div id="navbar-collapse-1" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="/signup">Register here</a></li>
+					<li><a href="/login"><button class="btn btn-danger btn-wide">Login</button></a></li>
+				</ul>
+			</div>
+
+		</div>
+	</div>
+
+	<div class="container">
+		<div id="myCarousel" class="carousel slide" data-ride='carousel'>
+
+			<ol class="carousel-indicators">
+				<li class="active" data-target="#myCarousel", data-slide-to="0"></li>
+				{% for key, val in carousel %}
+					<li data-target="#myCarousel", data-slide-to="{{ val.slide }}"></li>
+				{% endfor %}
+			</ol>
+
+			<div class="carousel-inner" role-"listbox">
+				<div class="item active">
+					<img src="/images/carousel/01.png" alt="">
+					<div class="container">
+						<div class="carousel-caption">
+							<p>Sigit (Visitor) menulis pesan kepada Admin, kemudian menekan "enter"</p>
+						</div>
+					</div>
+				</div>
+
+				{% for key, val in carousel %}
+					<div class="item">
+						<img src="{{ val.imgpath }}" alt="">
+						<div class="container">
+							<div class="carousel-caption">
+								<p>{{ val.caption }}</p>
+							</div>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+
+			<a href="#myCarousel" class="left carousel-control" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+			<a href="#myCarousel" class="right carousel-control" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+		</div>		
+
+		<div>
+			<h2>Charsabit?</h2>
+			<p id="description" class="text-justify">Charsabit (Chatting RSA Rabbit) adalah layanan <em>live chatting</em> yang berfungsi sebagai layanan komunikasi antara pengunjung dan administrator suatu <em>website</em> yang menerapkan algoritma kriptografi di dalamnya. Algoritma kriptografi diterapkan untuk mengamankan data text yang ditransmisikan dari penyadapan. Algoritma kriptografi yang digunakan adalah algoritma RSA dan <em>stream cipher</em> Rabbit. Algoritma RSA untuk <em>generate</em> kunci publik privat yang digunakan untuk pertukaran kunci, dan <em>stream cipher</em> Rabbit digunakan untuk proses enkripsi dekripsi pesan.</p>
+		</div>
+	</div>
+
+	<div class="bottom-menu">
+		<div class="text-center">
+			Charsabit &copy; 2014
+		</div>
+	</div>
+
+	
+{% endblock %}
+
+{% block js %}
+	{% parent %}
+	<script type="text/javascript" src="/javascripts/index.js"></script>
+	<script type="text/javascript" src="/javascripts/controllers/cryptMsgCtrl.js"></script>
+{% endblock %}

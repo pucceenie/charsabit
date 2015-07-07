@@ -1,0 +1,82 @@
+body {
+  /* padding: 50px; */
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+/*errorpage style*/
+.err-img {
+	text-align: center;
+	vertical-align: middle;
+	height: 100%;
+}
+
+.err-stack {
+	padding: 50px;
+}
+
+/*landingpage/index style*/
+#myCarousel{
+	margin-top: 80px;
+	border: 1px solid #eeeeee;
+}
+
+.carousel-caption{
+	background: #3e3e3e;
+	opacity: 0.5;
+	border-radius: 10px;
+}
+
+#description{
+	display: none;
+}
+
+.navbar{
+	padding: 0 20px;
+}
+
+.bottom-menu{
+	margin: 30px 0 0 0;
+	padding: 30px 0 30px 0;
+	background-color: #eeeeee;
+}
+
+/* form sign-up and login */
+.middle-center{
+	position: absolute !important;
+	top: 20%;
+	left: 50%;
+}
+
+.bg-grey{
+	position: absolute !important;
+	background: #eeeeee;
+	width: 100%;
+	height: 100%;
+}
+
+#login-box{
+	border: 3px solid #ecf0f1;
+	border-radius: 10px;
+	width: 400px;
+	margin-left: -200px;
+	background: #ffffff;
+	padding: 10px 25px;
+}
+
+#signup-box{
+	border: 3px solid #ecf0f1;
+	border-radius: 10px;
+	width: 400px;
+	margin-left: -200px;
+	background: #ffffff;
+	padding: 10px 25px;
+}
+
+/*alert*/
+.help-block{
+	margin-bottom: -5px;
+	padding: 2px 5px;
+}

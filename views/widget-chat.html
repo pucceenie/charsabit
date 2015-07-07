@@ -1,0 +1,39 @@
+{% extends "widget.html" %}
+
+{% block head %}
+	{% parent %}
+	
+{% endblock %}
+
+{% block content %}
+	{% if adminStatus === "offline" %}
+		<div id="admin-offline" class="widget-height">
+			<img src="/images/admin-offline.png" alt="">
+			Administrator Offline
+		</div>
+ 	{% else %}
+ 		<div id="chat-msg" class="widget-height">
+		<div class="chat-message">
+			<div id="chat-message-inner">
+				
+			</div>
+		</div>	
+	</div>
+	{% endif %}
+		
+	<script>
+		var idUsername = "{{ idUsernameAdministrator }}";
+		var idVUsername = "{{ idUsername }}";
+		var idWidget = "{{ idWidget }}";
+	</script>		
+	
+{% endblock %}
+
+{% block js %}
+	{% parent %}
+	<script src="/socket.io/socket.io.js"></script>
+	<script type="text/javascript" src="/javascripts/widget-chat.js"></script>
+	<script type="text/javascript" src="/javascripts/controllers/cryptMsgCtrl.js"></script>
+	<script type="text/javascript" src='/javascripts/controllers/RSA.js'></script>
+	<script type="text/javascript" src='/javascripts/controllers/rabbit.js'></script>	
+{% endblock %}

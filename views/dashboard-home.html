@@ -1,0 +1,16 @@
+{% extends "dashboard.html" %}
+
+{% block head %}
+	{% parent %}
+
+{% endblock %}
+
+{% block content %}
+	<h3>Selamat datang <a href="/dashboard/{{ username }}">{{ username }}</a> di dashboard Charsabit Anda. </h3>
+	<p>Silakan gunakan menu <strong>"Setting Widget"</strong> untuk memasang <em>widget</em> pada <em>website</em> Anda. <br> Pilih nama Visitor dari <strong>"Visitor List"</strong> untuk memulai <em>chat. </em></p>
+{% endblock %}
+
+{% block js %}
+	{% parent %}
+
+{% endblock %}

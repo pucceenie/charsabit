@@ -1,0 +1,69 @@
+{% extends "widget.html" %}
+
+{% block head %}
+	{% parent %}
+	<script type="text/javascript" src='/javascripts/controllers/RSA.js'></script>
+	<script type="text/javascript" src="/javascripts/controllers/cryptMsgCtrl.js"></script>
+{% endblock %}
+
+{% block content %}
+	<div id="signup" class="widget-height">
+		<form method="post" id="signup-form">
+			<div class="form-group {% if msg.email %}has-error{% endif %}">
+				<label for="signup-email" class="sr-only">Email Address</label>
+				<input type="text" id="signup-email" class="form-control" placeholder="Email address", name="signupEmail"
+				{% if data %}value={{ data.email }}{% endif %}>
+				{% if msg.email %}
+					<span class="help-block">{{ msg.email }}</span>
+				{% endif %}
+				
+			</div>
+			<div class="form-group {% if msg.username %}has-error{% endif %}">
+				<label for="signup-username" class="sr-only">Username</label>
+				<input type="text" id="signup-username" class="form-control" placeholder="Username", name="signupUsername"
+				{% if data %}value={{ data.username }}{% endif %}>
+				{% if msg.username %}
+					<span class="help-block">{{ msg.username }}</span>
+				{% endif %}
+			</div>
+			<div class="form-group {% if msg.password %}has-error{% endif %}">
+				<label for="signup-password" class="sr-only">Password</label>
+				<input type="password" id="signup-password" class="form-control" placeholder="Password", name="signupPassword"
+				{% if data %}value={{ data.password }}{% endif %}>
+				{% if msg.password %}
+					<span class="help-block">{{ msg.password }}</span>
+				{% endif %}
+			</div>
+			<div class="form-group {% if msg.passwordRepeat %}has-error{% endif %}">
+				<label for="signup-password-repeat" class="sr-only">Repeat Password</label>
+				<input type="password" id="signup-password-repeat" class="form-control" placeholder="Repeat Password", name="signupPasswordRepeat"
+				{% if data %}value={{ data.passwordRepeat }}{% endif %}>
+				{% if msg.passwordRepeat %}
+					<span class="help-block">{{ msg.passwordRepeat }}</span>
+				{% endif %}
+			</div>
+			<button id="signup-btn" class="btn btn-warning btn-block" type="submit">Sign Up</button>
+		</form>
+			
+		<p>Already have an account? <a href="/widget/{{ idWidget }}/login" id="login-link">Sign In</p> 		
+	</div>
+
+{% if !msg.length && url %}
+	<script>
+		var kripto = new CryptMsgCtrl();
+		if (!kripto.isAvailableRSAKey()) {
+			kripto.generateAndSaveRSAKey();
+		}
+		window.location.href = '{{ url }}';
+
+	</script>
+	
+{% endif %}
+			
+	
+{% endblock %}
+
+{% block js %}
+	{% parent %}
+	<script type="text/javascript" src="/javascripts/widget-signup.js"></script>
+{% endblock %}

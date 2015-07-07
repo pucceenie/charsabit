@@ -1,0 +1,11 @@
+{
+  "name": "charsabit",
+  "version": "0.0.1",
+  "dependencies": {
+    "jquery": "1.11.2",
+    "bootstrap": "3.3.4",
+    "zeroclipboard": "~2.2.0",
+    "jquery-form": "~3.46.0",
+    "jquery-titlealert": "git://github.com/heyman/jquery-titlealert.git"
+  }
+}

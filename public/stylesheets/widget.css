@@ -1,0 +1,185 @@
+/*custom scrollbar just for chrome*/
+::-webkit-scrollbar{
+	width: 5px;
+}
+ ::-webkit-scrollbar-thumb {
+      background: #C0392B;
+  }
+
+/*container*/
+#container {
+	position: absolute !important;
+	background: #333333;
+	width: 100%;
+	height: 100%;
+	padding: 50px;
+}
+
+#container > h2 {
+	color: #fff;
+}
+
+/*widget style*/
+#widget {
+	position: fixed;
+	width: 350px;
+	height: 500px;
+	bottom: 0;
+	right: 25px;
+}
+
+#widget-header {
+	position: relative;
+	background-color: #e74c3c;
+	width: 350px;
+	height: 40px;
+	border-radius: 4px 4px 0 0;
+	line-height: 40px;
+	color: #fff;
+	padding: 5px 10px;
+	cursor: pointer;
+}
+
+#widget-header > .pull-right {
+	padding: 10px 5px;
+}
+
+#widget-header > .pull-right > a {
+	color: #fff;
+	text-decoration: none;
+}
+
+#widget-body {
+	width: 350px;
+	height: 460px;
+	background-color: #ecf0f1;
+	padding: 10px;
+}
+
+#minimize-btn {
+	position: fixed;
+	bottom: 0;
+	right: 25px;
+	display: none;
+	text-align: left;
+}
+
+#minimize-btn .badge {
+	color: #e74c3c;
+}
+
+#minimize-icon {
+	cursor: pointer;
+}
+
+.widget-height {
+	height: 370px;
+	padding: 5px;
+}
+
+#chat-msg {
+	overflow-y: auto;
+	overflow-x: hidden;
+	display: block;
+	width: 100%;
+}
+
+.chat-message {
+	display: table;
+	/* height: 370px; */
+}
+
+#chat-message-inner {
+	display: table-cell;
+	vertical-align: bottom;
+
+}
+
+#msg-new {
+	padding-left: 10px;
+	color: #c0392b;
+}
+
+.administrator-status {
+	font-style: italic;
+	color: #BCBCBC;
+	font-size: 14px;
+	padding-top: 5px;
+	height: 25px;
+}
+
+#chat-message-inner .row {
+	margin-left: 0px;
+	width: 320px;
+	margin-top: 10px;
+}
+.msg-sent {
+	background-color: #bdc3c7;
+}
+
+.msg-receive {
+	background-color: #95a5a6;
+}
+
+.msg {
+	border-radius: 5px;
+	padding: 5px;
+}
+
+/*ava img*/
+img {
+	height: 50px;
+	width: 50px;
+	margin-left: 0;
+}
+.col-md-3 {
+	width: 60px;
+	padding-left: 5px;
+}
+.col-md-9 {
+	width: 260px;
+}
+
+/*admin offline*/
+#admin-offline {
+	padding-top: 150px;
+	padding-left: 75px;
+}
+#admin-offline > img {
+	width: auto;
+	height: auto;
+}
+
+/*alert*/
+.help-block {
+	/* margin-bottom: 5px; */
+	padding-bottom: 2px;
+	padding-left: 5px;
+}
+
+.alert-visible {
+	display: block;
+}
+
+.alert-invisible {
+	display: none;
+}
+
+/*tambahan*/
+#login-signup-link {
+	display: none;
+}
+
+#logout-icon {
+	top: -10px;
+}
+
+#minimize-icon {
+	top: -10px;
+}
+
+#alert {
+	height: 20px;
+}
+
+
